@@ -1,0 +1,82 @@
+.title-box{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: hsl(74, 56%, 80%);
+  left: 0;
+  right: 0;
+  top: 0;
+  border-bottom: solid;
+}
+
+.title-name{
+  font-size: 30px;
+  font-family: Exo 2;
+  letter-spacing: 3px;
+  word-spacing: 20px;
+}
+
+.names-selection-message{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.names-message{
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.input-names-box{ 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 50vh;
+  align-items: center;
+  column-gap: 20vh;
+}
+
+.input-names-box1, .input-names-box2{
+  height: 25vh;
+  border-radius: 75px;
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+.input-names{
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+.input-names-box1::placeholder, .input-names-box2::placeholder{
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 2px;
+  color: hsl(0, 0%, 75%);
+}
+
+.next-button-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-button{
+  padding: 20px 50px;
+  border-radius: 30px;
+  font-size: 20px;
+  border: none;
+  background-color:hsl(144, 100%, 80%);
+  cursor: pointer;
+  color:hsl(0, 6%, 20%);
+  transition: background-color 0.15s;
+}
+
+.next-button:hover{
+  background-color: hsl(144, 100%, 88%);
+}

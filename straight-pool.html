@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <!--HEAD-->
+  <head>
+    <title>Straight Pool Calculator</title>
+    <link rel="stylesheet" href="/player-names.css">
+    <link rel="stylesheet" href="/general.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght
+      @0,100..900;1,100..900&family=Roboto:ital,wght
+      @0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+
+  <!--BODY-->
+  <body>
+    <div class="title-box">
+      <p class="title-name">
+        Straight Pool - Calculator
+      </p>
+    </div>
+    <div class="names-selection-message">
+      <p class="names-message">
+        Players, Type Your Names.
+      </p>
+    </div>
+    <div class="input-names-box">
+      <input placeholder="Player1 Name" class="input-names-box1" oninput="changeName1();">
+      <input placeholder="Player2 Name" class="input-names-box2" oninput="changeName2();">
+      <p class="input-names">Player1: <span class="changed-name1"></span></p>
+      <p class="input-names">Player2: <span class="changed-name2"></span></p>
+    </div>
+    <div class="next-button-box">
+      <button class="next-button" onclick="nextPage()">
+        Next
+      </button>
+    </div>
+  </body>
+
+  <!--JavaScript-->
+  <script>
+    let player1Name = '';
+    let player2Name = '';
+
+    function changeName1(){
+      document.querySelector('.changed-name1').innerHTML = document.querySelector('.input-names-box1').value;
+    }
+
+    function changeName2(){
+      document.querySelector('.changed-name2').innerHTML = document.querySelector('.input-names-box2').value;
+    }
+
+    function nextPage(){
+      player1Name = document.querySelector('.changed-name1').innerHTML;
+      player2Name = document.querySelector('.changed-name2').innerHTML;
+      if (player1Name === ''){
+        player1Name = 'Player 1';
+      }
+      if (player2Name === ''){
+        player2Name = 'Player 2';
+      }
+      
+      document.querySelector('.names-selection-message').remove();
+      document.querySelector('.input-names-box').remove();
+      document.querySelector('.next-button-box').remove();
+    } 
+  </script>
+</html>
