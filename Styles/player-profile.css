@@ -1,0 +1,68 @@
+.goal-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-text{
+  margin-top: 10px;
+  font-size: 30px;
+  font-family: Exo 2;
+  margin-bottom: 15px;
+}
+
+.goal-input{
+  display: flex;
+  width: 10%;
+  padding: 10px 5px;
+  border-radius: 15px;
+  border-color: hsl(0, 0%, 90%);
+  background-color: hsl(34, 78%, 95%);
+
+  font-size: 35px;
+  text-align: center;
+
+  transition: 0.1s;
+}
+
+.goal-input:focus{
+  border-color: rgb(255, 208, 0);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.goal-input::placeholder{
+  font-size: 20px;
+  text-align: center;
+  color: hsl(0, 0%, 80%);
+}
+
+.player-boxes{
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.player1-box{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.player2-box{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.player1-name, .player2-name{
+  margin-top: -20px;
+  font-size: 50px;
+  font-family: Exo 2;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+

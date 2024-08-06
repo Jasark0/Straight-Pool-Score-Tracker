@@ -3,9 +3,9 @@
   <!--HEAD-->
   <head>
     <title>Straight Pool Calculator</title>
-    <link rel="stylesheet" href="/player-names.css">
-    <link rel="stylesheet" href="/general.css">
-
+    <link rel="stylesheet" href="/Styles/general.css">
+    <link rel="stylesheet" href="/Styles/player-names.css">
+    <link rel="stylesheet" href="/Styles/player-profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght
@@ -20,46 +20,47 @@
         Straight Pool - Calculator
       </p>
     </div>
-    <div class="names-selection-message">
-      <p class="names-message">
-        Players, Type Your Names.
+    
+    <div class="goal-box">
+      <p class="goal-text"> 
+        Goal
       </p>
+      <input type="number" placeholder="Goal Point" class="goal-input">
     </div>
-    <div class="input-names-box">
-      <input placeholder="Player1 Name" class="input-names-box1" oninput="changeName1();">
-      <input placeholder="Player2 Name" class="input-names-box2" oninput="changeName2();">
-      <p class="input-names">Player1: <span class="changed-name1"></span></p>
-      <p class="input-names">Player2: <span class="changed-name2"></span></p>
+
+    <div class="player-boxes">
+      <div class="player1-box">
+        <p id = "player1" class="player1-name"></p>
+      </div>
+      <div class="player2-box">
+        <p id = "player2" class="player2-name"></p>
+      </div>
     </div>
-    <div class="next-button-box">
-      <button class="next-button" onclick="nextPage()">
-        Next
-      </button>
-    </div>
-  </body>
 
-  <!--JavaScript-->
-  <script>
-    let player1Name = '';
-    let player2Name = '';
+    <a href="straight-pool-names.html">
+      <button>Go Back</button>
+    </a> 
 
-    function changeName1(){
-      document.querySelector('.changed-name1').innerHTML = document.querySelector('.input-names-box1').value;
-    }
+    <!--JavaScript-->
+    <script>
+      const player1Name = localStorage.getItem('player1-name');
+      const player2Name = localStorage.getItem('player2-name');
 
-    function changeName2(){
-      document.querySelector('.changed-name2').innerHTML = document.querySelector('.input-names-box2').value;
-    }
-
-    function nextPage(){
-      player1Name = document.querySelector('.changed-name1').innerHTML;
-      player2Name = document.querySelector('.changed-name2').innerHTML;
-      if (player1Name === ''){
+      if (player1Name === null){
         player1Name = 'Player 1';
       }
-      if (player2Name === ''){
+      if (player2Name === null){
         player2Name = 'Player 2';
       }
-    } 
-  </script>
+
+      window.onload = function(){
+        if (player1Name){
+          document.getElementById('player1').textContent = player1Name;
+        }
+        if (player2Name){
+          document.getElementById('player2').textContent = player2Name;
+        }
+      }
+    </script>
+  </body>
 </html>
