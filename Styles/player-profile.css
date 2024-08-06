@@ -14,16 +14,25 @@
 
 .goal-input{
   display: flex;
-  width: 10%;
+  width: 125px;
   padding: 10px 5px;
   border-radius: 15px;
   border-color: hsl(0, 0%, 90%);
   background-color: hsl(34, 78%, 95%);
 
   font-size: 35px;
+  font-family: Exo 2;
   text-align: center;
-
+  letter-spacing: 2px;
   transition: 0.1s;
+}
+
+.goal-input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+}
+
+.goal-input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
 }
 
 .goal-input:focus{
@@ -33,8 +42,8 @@
 }
 
 .goal-input::placeholder{
-  font-size: 20px;
-  text-align: center;
+  display: flex;
+  font-size: 30px;
   color: hsl(0, 0%, 80%);
 }
 
@@ -66,3 +75,18 @@
   letter-spacing: 2px;
 }
 
+.player1-score{
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  font-size: 100px;
+  color: hsl(6, 93%, 71%);
+}
+
+.player2-score{
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  font-size: 100px;
+  color: hsl(250, 100%, 65%);
+}
