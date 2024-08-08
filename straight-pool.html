@@ -31,11 +31,29 @@
     <div class="player-boxes">
       <div class="player1-box">
         <p id = "player1" class="player1-name"></p>
-        <p class="player1-score">0</p>
+        <div class="score-box">
+          <button class="decrement-button" onclick="decrementPlayerOne();">-</button>
+          <p class="player1-score">0</p>
+          <div class="increment-box">
+            <button class="increment-button" onclick="incrementPlayerOne();">+</button>
+            <button class="increment-button" onclick="increment2PlayerOne();">+2</button>
+            <button class="increment-button" onclick="increment5PlayerOne();">+5</button>
+            <button class="increment-button" onclick="increment14PlayerOne();">+14</button>
+          </div>
+        </div>
       </div>
       <div class="player2-box">
         <p id = "player2" class="player2-name"></p>
-        <p class="player2-score">0</p>
+        <div class="score-box">
+          <button class="decrement-button" onclick="decrementPlayerTwo();">-</button>
+          <p class="player2-score">0</p>
+          <div class="increment-box">
+            <button class="increment-button" onclick="incrementPlayerTwo();">+</button>
+            <button class="increment-button" onclick="increment2PlayerTwo();">+2</button>
+            <button class="increment-button" onclick="increment5PlayerTwo();">+5</button>
+            <button class="increment-button" onclick="increment14PlayerTwo();">+14</button>
+          </div>     
+        </div>
       </div>
     </div>
 
@@ -44,25 +62,7 @@
     </a> 
 
     <!--JavaScript-->
-    <script>
-      const player1Name = localStorage.getItem('player1-name');
-      const player2Name = localStorage.getItem('player2-name');
-
-      if (player1Name === null){
-        player1Name = 'Player 1';
-      }
-      if (player2Name === null){
-        player2Name = 'Player 2';
-      }
-
-      window.onload = function(){
-        if (player1Name){
-          document.getElementById('player1').textContent = player1Name;
-        }
-        if (player2Name){
-          document.getElementById('player2').textContent = player2Name;
-        }
-      }
+    <script src="/js/straight-pool.js">
     </script>
   </body>
 </html>

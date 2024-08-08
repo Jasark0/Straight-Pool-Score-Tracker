@@ -68,18 +68,54 @@
 }
 
 .player1-name, .player2-name{
-  margin-top: -20px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50px;
   font-size: 50px;
   font-family: Exo 2;
   font-weight: 500;
   letter-spacing: 2px;
 }
 
+.score-box{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.increment-box{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 10px;
+}
+
+.decrement-button{
+  height: 75px;
+  width: 75px;
+  border-radius: 38px;
+  font-size: 45px;
+  background-color:antiquewhite;
+  color: rgb(50, 50, 50);
+  cursor: pointer;
+}
+
+.increment-button{
+  height: 75px;
+  width: 75px;
+  border-radius: 38px;
+  font-size: 25px;
+  background-color:antiquewhite;
+  color: rgb(50, 50, 50);
+  cursor: pointer;
+}
+
 .player1-score{
   display: flex;
   justify-content: center;
   margin-top: 0;
-  font-size: 100px;
+  font-size: 125px;
   color: hsl(6, 93%, 71%);
 }
 
@@ -87,6 +123,6 @@
   display: flex;
   justify-content: center;
   margin-top: 0;
-  font-size: 100px;
+  font-size: 125px;
   color: hsl(250, 100%, 65%);
 }
