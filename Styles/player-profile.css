@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  row-gap: 15px;
 }
 
 .goal-text{
@@ -47,8 +48,15 @@
   color: hsl(0, 0%, 80%);
 }
 
+.remaining-balls-style{
+  font-size: 50px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .player-boxes{
-  margin-top: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -71,7 +79,6 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  margin-top: -75px;
   font-size: 50px;
   font-family: Exo 2;
   font-weight: 500;
@@ -83,6 +90,7 @@
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   justify-content: center;
+
 }
 
 .increment-box{
@@ -115,7 +123,7 @@
   display: flex;
   justify-content: center;
   margin-top: 0;
-  font-size: 125px;
+  font-size: 115px;
   color: hsl(6, 93%, 71%);
 }
 
@@ -123,7 +131,7 @@
   display: flex;
   justify-content: center;
   margin-top: 0;
-  font-size: 125px;
+  font-size: 115px;
   color: hsl(250, 100%, 65%);
 }
 
