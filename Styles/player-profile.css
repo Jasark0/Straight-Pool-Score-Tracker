@@ -71,7 +71,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  margin-top: -50px;
+  margin-top: -75px;
   font-size: 50px;
   font-family: Exo 2;
   font-weight: 500;
@@ -125,4 +125,21 @@
   margin-top: 0;
   font-size: 125px;
   color: hsl(250, 100%, 65%);
+}
+
+.go-back-button{
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: none;
+  background-color:hsl(144, 100%, 80%);
+  cursor: pointer;
+  color:hsl(0, 6%, 20%);
+  transition: background-color 0.15s;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.go-back-button:hover{
+  background-color: hsl(144, 100%, 88%);
 }
