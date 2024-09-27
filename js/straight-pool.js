@@ -21,8 +21,8 @@ window.onload = function(){
 
 function calRemainingBalls(potted){
   let remainingBalls = document.querySelector('.remaining-balls').innerHTML - potted;
-  if (remainingBalls === 0){
-    document.querySelector('.remaining-balls').innerHTML = 14;
+  if (remainingBalls === 1){
+    document.querySelector('.remaining-balls').innerHTML = 15;
   }
   else{
     document.querySelector('.remaining-balls').innerHTML = remainingBalls;
