@@ -102,7 +102,7 @@
 
 .increment-box{
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   row-gap: 10px;
 }
 
@@ -140,6 +140,12 @@
   margin-top: 0;
   font-size: 115px;
   color: hsl(250, 100%, 65%);
+}
+
+.owe-style{
+  margin-top: 40px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .go-back-button{
