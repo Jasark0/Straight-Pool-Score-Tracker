@@ -7,6 +7,12 @@ const player2Name = localStorage.getItem('player2-name');
 let player1Owe = 0;
 let player2Owe = 0;
 
+let player1High = 0;
+let player2High = 0;
+
+let player1HighTemp = 0;
+let player2HighTemp = 0;
+
 if (player1Name === null){
   player1Name = 'Player 1';
 }
@@ -51,6 +57,13 @@ function incrementPlayerOne(){
   }
   player1Score++;
   document.querySelector('.player1-score').innerHTML = player1Score;
+
+  player2HighTemp = 0;
+  player1HighTemp++;
+  if (player1HighTemp > player1High){
+    player1High = player1HighTemp;
+    document.querySelector('.player1-high-run').innerHTML = `High Run: ${player1High}`;
+  }
 }
 
 function increment2PlayerOne(){
@@ -94,8 +107,16 @@ function incrementPlayerTwo(){
   else{
     calRemainingBalls(1);
   }
+
   player2Score++;
   document.querySelector('.player2-score').innerHTML = player2Score;
+
+  player1HighTemp = 0;
+  player2HighTemp++;
+  if (player2HighTemp > player2High){
+    player2High = player2HighTemp;
+    document.querySelector('.player2-high-run').innerHTML = `High Run: ${player2High}`;
+  }
 }
 
 function increment2PlayerTwo(){
