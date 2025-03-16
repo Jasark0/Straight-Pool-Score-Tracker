@@ -1,17 +1,18 @@
+player1Name = localStorage.getItem('player1-name');
+player2Name = localStorage.getItem('player2-name');
+
 let player1Score = Number(document.querySelector('.player1-score').innerHTML);
 let player2Score = Number(document.querySelector('.player2-score').innerHTML);
 let remainingBalls = Number(document.querySelector('.remaining-balls').innerHTML);
 let rackNum = 1;
 
-player1Name = localStorage.getItem('player1-name');
-player2Name = localStorage.getItem('player2-name');
-
+let currRackPlayer1Score = 0;
+let currRackPlayer2Score = 0;
 let player1Owe = 0;
 let player2Owe = 0;
 
 let player1High = 0;
 let player2High = 0;
-
 let player1HighTemp = 0;
 let player2HighTemp = 0;
 
@@ -42,6 +43,9 @@ function calRemainingBalls(potted){
     
     rackNum++;
     document.querySelector('.rack-number').innerHTML = `(Rack ${rackNum})`;
+
+    currRackPlayer1Score = 0;
+    currRackPlayer2Score = 0;
   }
   else{
     document.querySelector('.remaining-balls').innerHTML = remainingBalls;
@@ -50,6 +54,7 @@ function calRemainingBalls(potted){
 
 function incrementPlayerOne(){
   if (player1Owe != 0){
+    currRackPlayer1Score++;
     player1Owe--;
     if (player1Owe === 1){
       document.querySelector('.player1-owe').innerHTML = `Player Owes 1 Ball`;
@@ -59,8 +64,10 @@ function incrementPlayerOne(){
     }
   }
   else{
+    currRackPlayer1Score++;
     calRemainingBalls(1);
   }
+
   player1Score++;
   document.querySelector('.player1-score').innerHTML = player1Score;
 
@@ -78,6 +85,13 @@ function increment2PlayerOne(){
 }
 
 function incrementRestPlayerOne(){
+  player2HighTemp = 0;
+  player1HighTemp+=(remainingBalls-1);
+  if (player1HighTemp > player1High){
+    player1High = player1HighTemp;
+    document.querySelector('.player1-high-run').innerHTML = `High Run: ${player1High}`;
+  }
+
   player1Score+=(remainingBalls-1);
   document.querySelector('.player1-score').innerHTML = player1Score;
   if (player1Owe != 0){
@@ -92,33 +106,47 @@ function incrementRestPlayerOne(){
   else{
     calRemainingBalls(remainingBalls-1);
   }
-
-  player2HighTemp = 0;
-  player1HighTemp+=(remainingBalls-1);
-  if (player1HighTemp > player1High){
-    player1High = player1HighTemp;
-    document.querySelector('.player1-high-run').innerHTML = `High Run: ${player1High}`;
-  }
 }
 
 function decrementPlayerOne(){
-  if (remainingBalls >= 15){
+  player1Score--;
+  currRackPlayer1Score--;
+  document.querySelector('.player1-score').innerHTML = player1Score;
+  calRemainingBalls(-1);
+
+  if (currRackPlayer1Score <= 0){
     player1Owe++;
     if (player1Owe === 1){
       document.querySelector('.player1-owe').innerHTML = `Player Owes 1 Ball`;
     }
-    else{
-      document.querySelector('.player1-owe').innerHTML = `Player Owes ${player1Owe} Balls`;
+    else if (player1Owe === 2){
+      document.querySelector('.player1-owe').innerHTML = `Player Owes 2 Balls`;
+    }
+    else if (player1Owe >= 3){
+      alert(`A serious foul committed: 3 foul rule. At this time, ${player1Name} must rerack all balls, and proceed to break. Please read rule 4.11 for more information.`);
+      remainingBalls = 15;
+      player1Score -= 15;
+      player1Owe = 0;
+      currRackPlayer1Score = 0;
+      currRackPlayer2Score = 0;
+      
+      document.querySelector('.remaining-balls').innerHTML = remainingBalls;
+      document.querySelector('.player1-score').innerHTML = player1Score;
+      document.querySelector('.player1-owe').innerHTML = `Player Owes 0 Balls`;
     }
   }
-
-  player1Score--;
-  document.querySelector('.player1-score').innerHTML = player1Score;
-  calRemainingBalls(-1);
 }
+
+
+
+
+
+
+
 
 function incrementPlayerTwo(){
   if (player2Owe != 0){
+    currRackPlayer2Score++;
     player2Owe--;
     if (player2Owe === 1){
       document.querySelector('.player2-owe').innerHTML = `Player Owes 1 Ball`;
@@ -128,6 +156,7 @@ function incrementPlayerTwo(){
     }
   }
   else{
+    currRackPlayer2Score++;
     calRemainingBalls(1);
   }
 
@@ -149,6 +178,13 @@ function increment2PlayerTwo(){
 
 
 function incrementRestPlayerTwo(){
+  player1HighTemp = 0;
+  player2HighTemp+=(remainingBalls-1);
+  if (player2HighTemp > player2High){
+    player2High = player2HighTemp;
+    document.querySelector('.player2-high-run').innerHTML = `High Run: ${player2High}`;
+  }
+
   player2Score+=(remainingBalls-1);
   document.querySelector('.player2-score').innerHTML = player2Score;
   if (player2Owe != 0){
@@ -163,27 +199,34 @@ function incrementRestPlayerTwo(){
   else{
     calRemainingBalls(remainingBalls-1);
   }
-
-  player1HighTemp = 0;
-  player2HighTemp+=(remainingBalls-1);
-  if (player2HighTemp > player2High){
-    player2High = player2HighTemp;
-    document.querySelector('.player2-high-run').innerHTML = `High Run: ${player2High}`;
-  }
 }
 
 function decrementPlayerTwo(){
-  if (remainingBalls >= 15){
+  player2Score--;
+  currRackPlayer2Score--;
+  document.querySelector('.player2-score').innerHTML = player2Score;
+  calRemainingBalls(-1);
+
+  if (currRackPlayer2Score <= 0){
     player2Owe++;
     if (player2Owe === 1){
       document.querySelector('.player2-owe').innerHTML = `Player Owes 1 Ball`;
     }
-    else{
-      document.querySelector('.player2-owe').innerHTML = `Player Owes ${player2Owe} Ball`;
+    else if (player2Owe === 2){
+      document.querySelector('.player2-owe').innerHTML = `Player Owes 2 Balls`;
+    }
+    else if (player2Owe >= 3){
+      alert(`A serious foul committed: 3 foul rule. At this time, ${player2Name} must rerack all balls, and proceed to break. Please read rule 4.11 for more information.`);
+      remainingBalls = 15;
+      player2Score -= 15;
+      player2Owe = 0;
+      currRackPlayer1Score = 0;
+      currRackPlayer2Score = 0;
+      
+      document.querySelector('.remaining-balls').innerHTML = remainingBalls;
+      document.querySelector('.player2-score').innerHTML = player2Score;
+      document.querySelector('.player2-owe').innerHTML = `Player Owes 0 Balls`;
+      return;
     }
   }
-
-  player2Score--;
-  document.querySelector('.player2-score').innerHTML = player2Score;
-  calRemainingBalls(-1);
 }
