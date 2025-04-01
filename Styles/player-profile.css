@@ -6,48 +6,6 @@
   row-gap: 15px;
 }
 
-.goal-text{
-  margin-top: 10px;
-  font-size: 30px;
-  font-family: Exo 2;
-  margin-bottom: 15px;
-}
-
-.goal-input{
-  display: flex;
-  width: 125px;
-  padding: 10px 5px;
-  border-radius: 15px;
-  border-color: hsl(0, 0%, 90%);
-  background-color: hsl(34, 78%, 95%);
-
-  font-size: 35px;
-  font-family: Exo 2;
-  text-align: center;
-  letter-spacing: 2px;
-  transition: 0.1s;
-}
-
-.goal-input::-webkit-outer-spin-button{
-  -webkit-appearance: none;
-}
-
-.goal-input::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-}
-
-.goal-input:focus{
-  border-color: rgb(255, 208, 0);
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-  outline: none;
-}
-
-.goal-input::placeholder{
-  display: flex;
-  font-size: 30px;
-  color: hsl(0, 0%, 80%);
-}
-
 .remaining-balls-container{
   display: flex;
   flex-direction: row;
@@ -64,8 +22,9 @@
 }
 
 .player-boxes{
+  margin-top: -50px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-content: center;
 }
@@ -163,4 +122,16 @@
 
 .go-back-button:hover{
   background-color: hsl(144, 100%, 88%);
+}
+
+.image-style{
+  width: 150px;
+  display: block;
+  margin: auto;
+}
+
+.player-turn-text-style{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 30px;
 }
