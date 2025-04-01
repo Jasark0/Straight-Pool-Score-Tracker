@@ -46,6 +46,7 @@ document.addEventListener("keydown", function(event){ //space to switch turns
       document.getElementById('player-turn').src = "/images/rightArrow.png";
 
       player1HighTemp = 0;
+      document.querySelector('.player1-curr-high-run').innerHTML = `Current High Run: ${player1HighTemp}`;
     }
     else{
       player1Turn = true;
@@ -53,6 +54,7 @@ document.addEventListener("keydown", function(event){ //space to switch turns
       document.getElementById('player-turn').src = "/images/leftArrow.png";
 
       player2HighTemp = 0;
+      document.querySelector('.player2-curr-high-run').innerHTML = `Current High Run: ${player2HighTemp}`;
     }
 
     if (playerSpot != 0){
@@ -93,7 +95,7 @@ function incrementOwe(player){
   else if (player === "player2"){
     player2Owe--;
     playerSpot++;
-    document.querySelector('.player1-owe').innerHTML = `Player Owes ${player2Owe} Balls`;
+    document.querySelector('.player2-owe').innerHTML = `Player Owes ${player2Owe} Balls`;
   }
 }
 
@@ -109,6 +111,7 @@ function incrementPlayerOne(){
     document.getElementById('player-turn').src = "/images/leftArrow.png";
 
     player2HighTemp = 0;
+    document.querySelector('.player2-curr-high-run').innerHTML = `Current High Run: ${player2HighTemp}`;
   }
   
   player1Score++;
@@ -131,6 +134,7 @@ function incrementPlayerOne(){
   }
   
   document.querySelector('.player1-score').innerHTML = player1Score;
+  document.querySelector('.player1-curr-high-run').innerHTML = `Current High Run: ${player1HighTemp}`;
 }
 
 function increment2PlayerOne(){
@@ -177,6 +181,8 @@ function decrementPlayerOne(){
     document.getElementById('player-turn-text').textContent = `${player2Name}'s Turn`;
     document.getElementById('player-turn').src = "/images/rightArrow.png";
   }
+
+  document.querySelector('.player1-curr-high-run').innerHTML = `Current High Run: ${player1HighTemp}`;
 }
 
 
@@ -195,6 +201,7 @@ function incrementPlayerTwo(){
     document.getElementById('player-turn').src = "/images/rightArrow.png";
 
     player1HighTemp = 0;
+    document.querySelector('.player1-curr-high-run').innerHTML = `Current High Run: ${player1HighTemp}`;
   }
   
   player2Score++;
@@ -217,6 +224,7 @@ function incrementPlayerTwo(){
   }
 
   document.querySelector('.player2-score').innerHTML = player2Score;
+  document.querySelector('.player2-curr-high-run').innerHTML = `Current High Run: ${player2HighTemp}`;
 }
 
 function increment2PlayerTwo(){
@@ -265,4 +273,6 @@ function decrementPlayerTwo(){
     document.getElementById('player-turn-text').textContent = `${player1Name}'s Turn`;
     document.getElementById('player-turn').src = "/images/leftArrow.png";
   }
+
+  document.querySelector('.player2-curr-high-run').innerHTML = `Current High Run: ${player2HighTemp}`;
 }
