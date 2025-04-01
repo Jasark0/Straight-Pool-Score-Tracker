@@ -59,6 +59,8 @@ document.addEventListener("keydown", function(event){ //space to switch turns
 
     if (playerSpot != 0){
       alert(`Spot ${playerSpot} balls please!`);
+      remainingBalls += playerSpot;
+      document.querySelector('.remaining-balls').innerHTML = remainingBalls;
       playerSpot = 0;
     }
   }
@@ -72,13 +74,16 @@ function calRemainingBalls(potted){ //calculates the remaining balls currently
   else if (remainingBalls === 1){
     remainingBalls = 15;
     document.querySelector('.remaining-balls').innerHTML = remainingBalls;
-    
-    rackNum++;
-    document.querySelector('.rack-number').innerHTML = `(Rack ${rackNum})`;
 
     if (playerSpot != 0){
       alert(`Spot ${playerSpot} balls please!`);
+      remainingBalls = 1 + playerSpot;
+      document.querySelector('.remaining-balls').innerHTML = remainingBalls;
       playerSpot = 0;
+    }
+    else{
+      rackNum++;
+      document.querySelector('.rack-number').innerHTML = `(Rack ${rackNum})`;
     }
   }
   else{
@@ -103,6 +108,8 @@ function incrementPlayerOne(){
   if (!player1Turn){
     if (playerSpot != 0){
       alert(`Spot ${playerSpot} balls please!`);
+      remainingBalls += playerSpot;
+      document.querySelector('.remaining-balls').innerHTML = remainingBalls;
       playerSpot = 0;
     }
 
@@ -124,9 +131,8 @@ function incrementPlayerOne(){
   else if (player2Owe != 0){
     incrementOwe("player2");
   }
-  else{
-    calRemainingBalls(1);
-  }
+
+  calRemainingBalls(1);
 
   if (player1HighTemp > player1High){
     player1High = player1HighTemp;
@@ -176,6 +182,8 @@ function decrementPlayerOne(){
     document.querySelector('.player1-score').innerHTML = player1Score;
     calRemainingBalls(-1);
     alert(`Spot 1 ball please!`);
+    remainingBalls++;
+    document.querySelector('.remaining-balls').innerHTML = remainingBalls;
 
     player1Turn = false;
     document.getElementById('player-turn-text').textContent = `${player2Name}'s Turn`;
@@ -193,6 +201,8 @@ function incrementPlayerTwo(){
   if (player1Turn){
     if (playerSpot != 0){
       alert(`Spot ${playerSpot} balls please!`);
+      remainingBalls += playerSpot;
+      document.querySelector('.remaining-balls').innerHTML = remainingBalls;
       playerSpot = 0;
     }
 
@@ -214,9 +224,8 @@ function incrementPlayerTwo(){
   else if (player1Owe != 0){
     incrementOwe("player1");
   }
-  else{
-    calRemainingBalls(1);
-  }
+  
+  calRemainingBalls(1);
 
   if (player2HighTemp > player2High){
     player2High = player2HighTemp;
@@ -268,6 +277,8 @@ function decrementPlayerTwo(){
     document.querySelector('.player2-score').innerHTML = player2Score;
     calRemainingBalls(-1);
     alert(`Spot 1 ball please!`);
+    remainingBalls++;
+    document.querySelector('.remaining-balls').innerHTML = remainingBalls;
 
     player1Turn = true;
     document.getElementById('player-turn-text').textContent = `${player1Name}'s Turn`;
