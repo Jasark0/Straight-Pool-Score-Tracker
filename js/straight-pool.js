@@ -64,6 +64,24 @@ document.addEventListener("keydown", function(event){ //space to switch turns
       playerSpot = 0;
     }
   }
+
+  if (event.code === "ArrowLeft"){
+    if (player1Turn){
+      decrementPlayerOne();
+    }
+    else{
+      decrementPlayerTwo();
+    }
+  }
+
+  if (event.code === "ArrowRight"){
+    if (player1Turn){
+      incrementPlayerOne();
+    }
+    else{
+      incrementPlayerTwo();
+    }
+  }
 });
 
 function calRemainingBalls(potted){ //calculates the remaining balls currently
