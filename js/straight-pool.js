@@ -171,6 +171,44 @@ function increment2PlayerOne(){
 }
 
 function incrementRestPlayerOne(){
+  if (!player1Turn){
+    player1Turn = true;
+    document.getElementById('player-turn-text').textContent = `${player1Name}'s Turn`;
+    document.getElementById('player-turn').src = "/images/leftArrow.png";
+
+    player2HighTemp = 0;
+    document.querySelector('.player2-curr-high-run').innerHTML = `Current High Run: ${player2HighTemp}`;
+  }
+
+  playerSpot = player1Owe + player2Owe;
+
+  player1Owe = 0;
+  player2Owe = 0;
+  
+  document.querySelector('.player1-owe').innerHTML = `Player Owes ${player1Owe} Balls`;
+  document.querySelector('.player2-owe').innerHTML = `Player Owes ${player2Owe} Balls`;
+
+  player1Score += (remainingBalls - 1);
+  player1HighTemp += (remainingBalls - 1);
+  player1CFoul = 0;
+
+  if (player1HighTemp > player1High){
+    player1High = player1HighTemp;
+    document.querySelector('.player1-high-run').innerHTML = `High Run: ${player1High}`;
+  }
+  
+  document.querySelector('.player1-score').innerHTML = player1Score;
+  document.querySelector('.player1-curr-high-run').innerHTML = `Current High Run: ${player1HighTemp}`;
+
+  if (playerSpot != 0){
+    alert(`Spot ${playerSpot} balls please!`);
+    remainingBalls = 1 + playerSpot;
+    document.querySelector('.remaining-balls').innerHTML = remainingBalls;
+    playerSpot = 0;
+  }
+  else{
+    calRemainingBalls(remainingBalls - 1);
+  }
 }
 
 function decrementPlayerOne(){
@@ -218,7 +256,9 @@ function decrementPlayerOne(){
         playerSpot = 0;
       }
     }
-    
+    else{
+      alert(`Spot 1 ball please!`);
+    }
 
     document.querySelector('.player1-score').innerHTML = player1Score;
     calRemainingBalls(-1);
@@ -280,7 +320,44 @@ function increment2PlayerTwo(){
 }
 
 function incrementRestPlayerTwo(){
+  if (player1Turn){
+    player1Turn = false;
+    document.getElementById('player-turn-text').textContent = `${player2Name}'s Turn`;
+    document.getElementById('player-turn').src = "/images/rightArrow.png";
 
+    player1HighTemp = 0;
+    document.querySelector('.player1-curr-high-run').innerHTML = `Current High Run: ${player1HighTemp}`;
+  }
+
+  playerSpot = player1Owe + player2Owe;
+
+  player1Owe = 0;
+  player2Owe = 0;
+  
+  document.querySelector('.player1-owe').innerHTML = `Player Owes ${player1Owe} Balls`;
+  document.querySelector('.player2-owe').innerHTML = `Player Owes ${player2Owe} Balls`;
+
+  player2Score += (remainingBalls - 1);
+  player2HighTemp += (remainingBalls - 1);
+  player2CFoul = 0;
+
+  if (player2HighTemp > player2High){
+    player2High = player2HighTemp;
+    document.querySelector('.player2-high-run').innerHTML = `High Run: ${player2High}`;
+  }
+  
+  document.querySelector('.player2-score').innerHTML = player2Score;
+  document.querySelector('.player2-curr-high-run').innerHTML = `Current High Run: ${player2HighTemp}`;
+
+  if (playerSpot != 0){
+    alert(`Spot ${playerSpot} balls please!`);
+    remainingBalls = 1 + playerSpot;
+    document.querySelector('.remaining-balls').innerHTML = remainingBalls;
+    playerSpot = 0;
+  }
+  else{
+    calRemainingBalls(remainingBalls - 1);
+  }
 }
 
 function decrementPlayerTwo(){
@@ -327,6 +404,9 @@ function decrementPlayerTwo(){
         alert(`Spot ${playerSpot} balls please!`);
         playerSpot = 0;
       }
+    }
+    else{
+      alert(`Spot 1 ball please!`);
     }
     
 
